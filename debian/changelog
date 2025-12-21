@@ -1,3 +1,9 @@
+xserver-xlibre-video-sisusb (2:25.0.0-1) unstable; urgency=medium
+
+  * New upstream version 25.0.0
+
+ -- NexusSfan <nexussfan@duck.com>  Sat, 20 Dec 2025 16:48:33 -0800
+
 xserver-xlibre-video-sisusb (1:0.9.7.2-1) unstable; urgency=medium
 
   * New upstream version 0.9.7.2
