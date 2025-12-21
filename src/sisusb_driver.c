@@ -28,10 +28,7 @@
  * Author: Thomas Winischhofer <thomas@winischhofer.net>
  *
  */
-
-#ifdef HAVE_CONFIG_H
 #include "config.h"
-#endif
 
 #include "sisusb.h"
 
@@ -47,13 +44,7 @@
 
 #include "globals.h"
 
-#ifdef HAVE_XEXTPROTO_71
 #include <X11/extensions/dpmsconst.h>
-#else
-#define DPMS_SERVER
-#include <X11/extensions/dpms.h>
-#endif
-
 
 /*
  * This is intentionally screen-independent.  It indicates the binding
@@ -84,8 +75,6 @@ static SymTabRec SISUSBChipsets[] = {
     { USB_CHIP_SIS315, "SIS315E/PRO USB" },
     { -1,              NULL }
 };
-
-#ifdef XFree86LOADER
 
 static MODULESETUPPROTO(sisusbSetup);
 
@@ -119,8 +108,6 @@ sisusbSetup(pointer module, pointer opts, int *errmaj, int *errmin)
     if(errmaj) *errmaj = LDR_ONCEONLY;
     return NULL;
 }
-
-#endif /* XFree86LOADER */
 
 /* Mandatory */
 static void
