@@ -22,10 +22,10 @@
 
 # Initialize Autoconf
 AC_PREREQ([2.60])
-AC_INIT([xf86-video-sisusb],
-        [0.9.7],
-        [https://gitlab.freedesktop.org/xorg/driver/xf86-video-sisusb/issues],
-        [xf86-video-sisusb])
+AC_INIT([xlibre-xf86-video-sisusb],
+        [25.0.0],
+        [https://github.com/X11Libre/xf86-video-sisusb/issues],
+        [xlibre-xf86-video-sisusb])
 AC_CONFIG_SRCDIR([Makefile.am])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_AUX_DIR(.)
@@ -61,26 +61,9 @@ XORG_DRIVER_CHECK_EXT(DPMSExtension, xextproto)
 
 # Obtain compiler/linker options for the driver dependencies
 PKG_CHECK_MODULES(XORG, [xorg-server >= 1.18 xproto fontsproto pciaccess $REQUIRED_MODULES])
-PKG_CHECK_MODULES(XEXT, [xextproto >= 7.0.99.1],
-                  HAVE_XEXTPROTO_71="yes"; AC_DEFINE(HAVE_XEXTPROTO_71, 1, [xextproto 7.1 available]),
-                  HAVE_XEXTPROTO_71="no")
-AM_CONDITIONAL(HAVE_XEXTPROTO_71, [ test "$HAVE_XEXTPROTO_71" = "yes" ])
-
-# Checks for libraries.
-
-# Checks for library functions
-# We don't use strlcat, strlcpy, or timingsafe_memcmp, but check to quiet
-# -Wredundant-decls warning from xorg/os.h which will otherwise redefine them.
-AC_CHECK_FUNCS([strlcat strlcpy timingsafe_memcmp])
+PKG_CHECK_MODULES(XEXT, [xextproto >= 7.0.99.1])
 
 AC_SUBST([moduledir])
 
-DRIVER_NAME=sisusb
-AC_SUBST([DRIVER_NAME])
-
-AC_CONFIG_FILES([
-                Makefile
-                src/Makefile
-                man/Makefile
-])
+AC_CONFIG_FILES([Makefile src/Makefile man/Makefile])
 AC_OUTPUT
