@@ -17,8 +17,8 @@ Build-Depends:
  xutils-dev
 Standards-Version: 3.9.8
 Homepage: https://github.com/X11Libre
-Vcs-Git: https://github.com/xlibre-deb/xserver-xlibre-video-sisusb.git
-Vcs-Browser: https://github.com/xlibre-deb/xserver-xlibre-video-sisusb
+Vcs-Git: https://github.com/xlibre-debian/xserver-xlibre-video-sisusb.git
+Vcs-Browser: https://github.com/xlibre-debian/xserver-xlibre-video-sisusb
 
 Package: xserver-xlibre-video-sisusb
 Architecture: linux-any
